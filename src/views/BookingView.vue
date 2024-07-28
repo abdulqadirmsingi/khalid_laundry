@@ -13,7 +13,7 @@
               <option value="">Select a service</option>
               <option value="wash_fold">Wash & Fold</option>
               <option value="dry_cleaning">Dry Cleaning</option>
-              <option value="alterations">Alterations</option>
+              <option value="alterations">Stain removal</option>
             </select>
             <label class="absolute left-0 -top-3.5 text-gray-600 text-sm transition-all duration-300">
               Service
@@ -145,6 +145,3 @@ export default {
 }
 </script>
 
-<style scoped>
-/* Add any additional styles here */
-</style>

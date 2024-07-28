@@ -34,7 +34,7 @@
           <ul class="space-y-2">
             <li class="flex items-center">
               <i class="pi pi-map-marker mr-2"></i>
-              <span>Upanga, Kariakoo, Ubungo, Mabibo</span>
+              <span>Upanga, Kariakoo, Magomeni, Mabibo</span>
             </li>
             <li class="flex items-center">
               <i class="pi pi-phone mr-2"></i>

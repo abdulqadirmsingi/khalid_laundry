@@ -75,7 +75,7 @@ export default {
         { title: 'Quality', icon: 'pi pi-check-circle', description: 'Uncompromising attention to detail' },
       ],
       process: [
-        { title: 'Schedule', description: 'Book your laundry pickup online or via our app' },
+        { title: 'Schedule', description: 'Book your laundry pickup online' },
         { title: 'Collect', description: 'We pick up your laundry at your preferred time' },
         { title: 'Clean', description: 'Your clothes are expertly cleaned and cared for' },
         { title: 'Deliver', description: 'We return your fresh, clean laundry to your doorstep' },
