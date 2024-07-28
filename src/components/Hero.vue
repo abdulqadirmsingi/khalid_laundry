@@ -2,7 +2,7 @@
   <section class="relative bg-white text-black overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img 
-        src="https://3ddcb128.rocketcdn.me/wp-content/uploads/2022/12/Man-with-basket-of-clean-laundry.jpg" 
+        src="https://media.istockphoto.com/id/1182647877/photo/every-day-is-a-fresh-start.jpg?s=612x612&w=0&k=20&c=pBNo4jyczELXGE0Zr-rzzeKc6ck_gawQF9RO37sws0E=" 
         alt="Clean, folded laundry" 
         class="object-cover w-full h-full"
       >
