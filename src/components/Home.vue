@@ -37,7 +37,7 @@
           <div v-for="testimonial in testimonials" :key="testimonial.name" class="bg-white rounded-lg shadow-lg p-6">
             <p class="text-gray-600 mb-4">"{{ testimonial.quote }}"</p>
             <div class="flex items-center">
-              <img :src="testimonial.avatar" :alt="testimonial.name" class="w-12 h-12 rounded-full mr-4">
+              
               <div>
                 <h4 class="font-semibold">{{ testimonial.name }}</h4>
                 <p class="text-gray-500">{{ testimonial.title }}</p>
@@ -51,7 +51,7 @@
     <!-- Sponsor Logo Carousel -->
     <section class="py-16">
       <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12">Our Trusted Partners</h2>
+        <h2 class="text-4xl font-bold text-center mb-12">We have Worked with..</h2>
         <div class="sponsor-carousel overflow-hidden">
           <div class="flex animate-scroll">
             <img v-for="(sponsor, index) in sponsors" :key="index" :src="sponsor" :alt="'Sponsor ' + (index + 1)" class="h-16 mx-8">
@@ -79,17 +79,20 @@ export default {
         { title: 'Affordable Pricing', icon: 'pi pi-dollar', description: 'Competitive prices for premium laundry services.' },
       ],
       testimonials: [
-        { name: 'John Doe', title: 'Regular Customer', quote: 'KLD has been my go-to laundry service for years. Their quality and consistency are unmatched!', avatar: 'path/to/john-avatar.jpg' },
-        { name: 'Jane Smith', title: 'Business Owner', quote: 'As a busy entrepreneur, KLD saves me time and ensures I always look my best.', avatar: 'path/to/jane-avatar.jpg' },
-        { name: 'Mike Johnson', title: 'Student', quote: 'Affordable and reliable. KLD makes laundry day stress-free for us students!', avatar: 'path/to/mike-avatar.jpg' },
+        { name: 'Maya zamzam', title: 'Regular Customer', quote: 'Its a legendary dry cleaner with track record more than 20yrs in laundry business' },
+        { name: 'Ruwaichi', title: 'Business Owner', quote: 'I like everything, Amazing and unforgettable experience good quality and caring like a king. Salute 🤝 …' },
+        { name: 'Abeid Saleem', title: 'Student', quote: 'I would definitely recommend Khalid Laundry to anyone who needs cleaning services since they are reliable and responsible for anything that happens to clients goods. KUDOS KLD for everything.', },
+        { name: 'Azzan Shahid', title: 'Business Owner', quote: 'No waiting queues . Fast and quick service' },
+        { name: 'Ruwaichi', title: 'Regular customer', quote: 'The best drycleaners in town with very exceptional service. Keep it up' },
+        { name: 'Saidi Bakari', title: 'Business Owner', quote: 'Exceptional service, just as good as I receive in the States' },
       ],
       sponsors: [
+        'https://bvgh.org/wp-content/uploads/2024/02/mnh.jpg',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG3OD7nIcTVq7ZM4sOjCraeqTltcvNGhuWug&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQKSdeImqEy5awsi7FTkQOk9UvxydwDAGyVA&s',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRLBusMaEALRNYzVa9c8Ap1fDiOU_3ESMMqg&s',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSnmusPQLP0IVHWlvjT7pwdgFxg6W1Vuck-w&s',
-        'https://c8.alamy.com/comp/2D84KD9/creative-laundry-logo-design-2D84KD9.jpg',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrgw-MbdQJUc6Y0gKPsGrHdsSwc6P8bm6bXQ&s',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLUmVa0HYg55Xa4xbA-Fsuzpk39Mih7ioLMg&s',
-        'https://images.squarespace-cdn.com/content/v1/6148e10c66294c1574f1d965/1637095992546-JVC8PAN4GV5KTEXNOZI0/Logo-Old.png',
-        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRvpngxkZML3yGd20_fpW_zQ91gXuP1193rw&s',
       ],
     }
   },
@@ -98,15 +101,16 @@ export default {
 
 <style scoped>
 .animate-scroll {
-  animation: scroll 30s linear infinite;
+  animation: scroll 40s linear infinite;
 }
 
 @keyframes scroll {
   0% {
-    transform: translateX(0);
+    transform: translateX(100%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
+
 </style>

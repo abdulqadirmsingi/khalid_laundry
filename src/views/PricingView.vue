@@ -1,67 +1,64 @@
 <template>
-  <div class="bg-gray-100 min-h-screen py-12">
+  <div class="bg-white min-h-screen py-12">
     <div class="container mx-auto px-4">
-      <h1 class="text-5xl font-bold text-center mb-4">Our Pricing Plans</h1>
-      <p class="text-xl text-center text-gray-600 mb-12">Choose the perfect plan for your laundry needs</p>
-      
-      <div class="flex flex-wrap justify-center gap-8">
-        <div v-for="plan in plans" :key="plan.id" 
-             class="bg-white rounded-lg shadow-xl overflow-hidden w-full md:w-80 transform transition duration-500 hover:scale-105">
-          <div class="p-8">
-            <h2 class="text-2xl font-semibold mb-2">{{ plan.name }}</h2>
-            <div class="text-5xl font-bold text-blue-600 mb-4">Tsh {{ plan.price }}<span class="text-lg text-gray-500"></span></div>
-            <ul class="mb-8">
-              <li v-for="feature in plan.features" :key="feature" class="flex items-center mb-2">
-                <i class="pi pi-check-circle text-green-500 mr-2"></i>
-                <span>{{ feature }}</span>
-              </li>
-            </ul>
-          </div>
-          <div class="px-8 pb-8">
-            <button @click="selectPlan(plan)" 
-                    class="w-full bg-black text-white py-3 rounded-full font-semibold hover:bg-black transition duration-300">
-              Choose Plan
-            </button>
-          </div>
+      <h1 class="text-5xl font-bold text-center mb-4 text-black">Our Pricing</h1>
+      <p class="text-xl text-center text-gray-600 mb-12">Comprehensive pricing for all your cleaning needs</p>
+
+      <!-- Pricing Tables -->
+      <div v-for="(category, index) in categories" :key="index" class="mb-12">
+        <h2 class="text-3xl font-bold mb-4">{{ category.name }}</h2>
+        <div class="overflow-x-auto">
+          <table class="w-full bg-white shadow-lg rounded-lg">
+            <thead>
+              <tr class="bg-black text-white">
+                <th class="p-3 text-left">Item</th>
+                <th class="p-3 text-center">Regular Price</th>
+                <th class="p-3 text-center">Express Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in category.items" :key="item.id" class="border-b">
+                <td class="p-3 font-semibold">{{ item.name }}</td>
+                <td class="p-3 text-center">{{ item.price.toLocaleString() }}/=</td>
+                <td class="p-3 text-center">{{ (item.price * 2).toLocaleString() }}/=</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <div class="mt-16 bg-white p-8 rounded-lg shadow-xl max-w-2xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-8">Custom Pricing Calculator</h2>
+      <!-- Pricing Calculator -->
+      <div class="bg-gray-100 p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center mb-8">Calculate your items price here..</h2>
         <div class="flex flex-wrap -mx-4 mb-4">
-          <div class="w-full md:w-1/2 px-4 mb-4">
-            <label class="block mb-2">Laundry Weight (lbs):</label>
-            <input v-model.number="customWeight" type="number" class="w-full p-2 border rounded">
+          <div class="w-full md:w-1/3 px-4 mb-4">
+            <label class="block mb-2">Category:</label>
+            <select v-model="selectedCategory" class="w-full p-2 border rounded" @change="selectedItem = null">
+              <option v-for="category in categories" :key="category.name" :value="category">{{ category.name }}</option>
+            </select>
           </div>
-          <div class="w-full md:w-1/2 px-4 mb-4">
-            <label class="block mb-2">Additional Services:</label>
-            <div v-for="service in additionalServices" :key="service.name">
-              <label class="inline-flex items-center">
-                <input type="checkbox" v-model="service.selected" class="form-checkbox">
-                <span class="ml-2">{{ service.name }} (+Tsh {{ service.price }})</span>
-              </label>
-            </div>
+          <div class="w-full md:w-1/3 px-4 mb-4">
+            <label class="block mb-2">Item:</label>
+            <select v-model="selectedItem" class="w-full p-2 border rounded">
+              <option v-for="item in selectedCategory?.items" :key="item.id" :value="item">{{ item.name }}</option>
+            </select>
+          </div>
+          <div class="w-full md:w-1/3 px-4 mb-4">
+            <label class="block mb-2">Quantity:</label>
+            <input v-model.number="quantity" type="number" min="1" class="w-full p-2 border rounded">
           </div>
         </div>
-        <div class="text-center text-2xl font-bold">
-          Estimated Cost: Tsh {{ calculateCustomPrice.toFixed(2) }}
+        <div class="flex justify-center mb-4">
+          <label class="inline-flex items-center">
+            <input type="checkbox" v-model="isExpress" class="form-checkbox h-5 w-5 text-black">
+            <span class="ml-2">Express Service</span>
+          </label>
+        </div>
+        <div class="text-center text-2xl font-bold mt-4">
+          Estimated Cost: {{ calculateCost.toLocaleString() }}/=
         </div>
       </div>
     </div>
-
-    <transition name="modal">
-      <div v-if="selectedPlan" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-        <div class="bg-white rounded-lg p-8 max-w-md w-full">
-          <h2 class="text-3xl font-bold mb-4">Confirm Your Plan</h2>
-          <p class="mb-4">You've selected the <strong>{{ selectedPlan.name }}</strong> plan at Tsh {{ selectedPlan.price }}/month.</p>
-          <p class="mb-6">Would you like to proceed with this selection?</p>
-          <div class="flex justify-end space-x-4">
-            <button @click="selectedPlan = null" class="px-4 py-2 border rounded">Cancel</button>
-            <button @click="confirmPlan" class="px-4 py-2 bg-black text-white rounded">Confirm</button>
-          </div>
-        </div>
-      </div>
-    </transition>
   </div>
 </template>
 
@@ -70,76 +67,75 @@ export default {
   name: 'Pricing',
   data() {
     return {
-      plans: [
+      categories: [
         {
-          id: 1,
-          name: 'Basic',
-          price: 30000,
-          features: [
-            'Up to 10 lbs of laundry',
-            'Wash & Fold service',
-            'Standard 3-day turnaround'
+          name: 'Gents',
+          items: [
+            { id: 1, name: 'Suit', price: 14000 },
+            { id: 2, name: 'Coat/Jacket', price: 8000 },
+            { id: 3, name: 'Over Coat', price: 10000 },
+            { id: 4, name: 'Over Jacket', price: 10000 },
+            { id: 5, name: 'Trouser', price: 5000 },
+            { id: 6, name: 'Suit (2nd listing)', price: 14000 },
+            { id: 7, name: 'Shirt/T-Shirt', price: 5000 },
+            { id: 8, name: 'Short', price: 3000 },
+            { id: 9, name: 'Kanzu', price: 10000 },
+            { id: 10, name: 'Trad. Dress', price: 8000 },
+            { id: 11, name: 'Tie', price: 1000 },
+            { id: 12, name: 'Underwears', price: 4000 },
+            { id: 13, name: 'Pair of Socks', price: 3500 },
+            { id: 14, name: 'Sweater/Pullover', price: 6000 },
+            { id: 15, name: 'Vest', price: 3000 },
+            { id: 16, name: 'Leather Jacket', price: 12000 },
           ]
         },
         {
-          id: 2,
-          name: 'Premium',
-          price: 50000,
-          features: [
-            'Up to 20 lbs of laundry',
-            'Wash, Fold & Iron service',
-            '2-day turnaround',
-            'Free pickup and delivery'
+          name: 'Ladies',
+          items: [
+            { id: 17, name: 'Suit', price: 14000 },
+            { id: 18, name: 'Slacks', price: 5000 },
+            { id: 19, name: 'Blazers', price: 8000 },
+            { id: 20, name: 'Blouse', price: 5000 },
+            { id: 21, name: 'Skirts Plain', price: 5000 },
+            { id: 22, name: 'Skirts Pleated', price: 6000 },
+            { id: 23, name: 'Gown Ordinary', price: 14000 },
+            { id: 24, name: 'Evening Gown', price: 25000 },
+            { id: 25, name: 'Emb. Gown', price: 35000 },
+            { id: 26, name: 'Trad. Dress', price: 8000 },
+            { id: 27, name: 'Pants', price: 4000 },
+            { id: 28, name: 'Brassiers', price: 4000 },
+            { id: 29, name: 'Shawls/Scarfs', price: 3000 },
+            { id: 30, name: 'Punjabi Suit', price: 15000 },
+            { id: 31, name: 'Wedding Gown', price: 35000 },
           ]
         },
         {
-          id: 3,
-          name: 'Ultimate',
-          price: 100000,
-          features: [
-            'Unlimited laundry',
-            'All services included',
-            'Same-day turnaround',
-            'Priority pickup and delivery',
-            'Stain treatment included'
+          name: 'House Hold',
+          items: [
+            { id: 32, name: 'Quilt/Duvet', price: 14000 },
+            { id: 33, name: 'Blanket', price: 12000 },
+            { id: 34, name: 'Bed Covers', price: 12000 },
+            { id: 35, name: 'Bed Sheets (Single)', price: 10000 },
+            { id: 36, name: 'Bed Sheets (Double)', price: 12000 },
+            { id: 37, name: 'Towels', price: 10000 },
+            { id: 38, name: 'Curtain', price: 12000 },
+            { id: 39, name: 'Cushion Covers', price: 1000 },
+            { id: 40, name: 'Carpet per Soft', price: 1000 },
           ]
         }
       ],
-      selectedPlan: null,
-      customWeight: 0,
-      additionalServices: [
-        { name: 'Express Service', price: 5000, selected: false },
-        { name: 'Eco-Friendly Detergent', price: 3000, selected: false },
-        { name: 'Stain Treatment', price: 8000, selected: false },
-      ]
+      selectedCategory: null,
+      selectedItem: null,
+      quantity: 1,
+      isExpress: false
     }
   },
   computed: {
-    calculateCustomPrice() {
-      let basePrice = this.customWeight * 2.5; // 
-      let additionalCost = this.additionalServices.reduce((total, service) => {
-        return total + (service.selected ? service.price : 0);
-      }, 0);
-      return basePrice + additionalCost;
-    }
-  },
-  methods: {
-    selectPlan(plan) {
-      this.selectedPlan = plan;
-    },
-    confirmPlan() {
-      console.log('Plan confirmed:', this.selectedPlan);
-      this.selectedPlan = null;
+    calculateCost() {
+      if (!this.selectedItem || this.quantity <= 0) return 0;
+      let basePrice = this.selectedItem.price * this.quantity;
+      return this.isExpress ? basePrice * 2 : basePrice;
     }
   }
 }
 </script>
-
-<style scoped>
-.modal-enter-active, .modal-leave-active {
-  transition: opacity 0.3s;
-}
-.modal-enter-from, .modal-leave-to {
-  opacity: 0;
-}
-</style>
