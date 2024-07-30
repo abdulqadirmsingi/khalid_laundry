@@ -2,7 +2,7 @@
   <section class="hero relative bg-white text-black overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img 
-        src="@/assets/kld3.png" 
+        src="@/assets/kld3.webp" 
         alt="Clean, folded laundry" 
         class="object-cover w-full h-full"
       >
