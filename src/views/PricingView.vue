@@ -7,7 +7,7 @@
       <p class="text-xl text-center text-gray-600 mb-12">
         Comprehensive pricing for all your cleaning needs
       </p>
-      <div class="bg-gray-100 p-8 rounded-lg shadow-lg mb-20"> <!-- Adjusted margin-bottom here -->
+      <div class="bg-gray-100 p-8 rounded-lg shadow-lg mb-20"> 
         <h2 class="text-3xl font-bold text-center mb-8">
           Calculate your items price here..
         </h2>
