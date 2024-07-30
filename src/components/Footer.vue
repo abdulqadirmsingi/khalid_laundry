@@ -65,7 +65,8 @@
         </div>
       </div>
       <div class="mt-8 pt-8 border-t border-gray-700 text-center">
-        <p>&copy; {{ new Date().getFullYear() }} Khalid Laundry. All rights reserved.</p>
+        <p>&copy; {{ new Date().getFullYear() }} Khalid Cleaning Company Ltd. All rights reserved.</p>
+        <p>Designed and created by <a style="color: blue;" href="https://x.com/qadirmsingi?s=11" target="_blank">abdulqadirmsingi</a>.</p>
       </div>
     </div>
   </footer>
