@@ -140,24 +140,26 @@
     </section>
 
     <!-- Sponsor Logo Carousel -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl font-bold text-center mb-12 text-black">
-          Partnership and Collaboration
-        </h2>
-        <div class="sponsor-carousel overflow-hidden">
-          <div class="flex animate-scroll">
-            <img
-              v-for="(sponsor, index) in sponsors"
-              :key="index"
-              :src="sponsor"
-              :alt="'Sponsor ' + (index + 1)"
-              class="h-16 mx-8  transition duration-300"
-            />
-          </div>
-        </div>
+   <section class="py-16 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-12 text-black">
+      Partnership and Collaboration
+    </h2>
+    <div class="sponsor-carousel overflow-hidden">
+      <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6 lg:gap-8">
+        <img
+          v-for="(sponsor, index) in sponsors"
+          :key="index"
+          :src="sponsor"
+          :alt="'Sponsor ' + (index + 1)"
+          class="h-16 max-w-xs mx-4 transition duration-300"
+        />
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
   </div>
 </template>
 
@@ -341,40 +343,11 @@ export default {
 </script>
 
 <style scoped>
-.animate-scroll {
-  animation: scroll 40s linear infinite;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.testimonial-slider {
-  overflow: hidden;
-}
-
-.testimonial-card {
-  transition: all 0.3s ease;
-}
 
 
 
-.fade-enter-active, .fade-leave-active {
-  transition: all 0.5s ease;
-}
 
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-  transform: translateY(30px);
-}
 
-.fade-enter-to, .fade-leave {
-  opacity: 1;
-  transform: translateY(0);
-}
+
+
 </style>

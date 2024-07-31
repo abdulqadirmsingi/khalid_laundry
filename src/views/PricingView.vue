@@ -83,7 +83,7 @@
                 :key="item.id"
                 class="border-b"
               >
-                <td class="p-3 font-semibold">{{ item.name }}</td>
+                <td class="p-3 ">{{ item.name }}</td>
                 <td class="p-3 text-center">
                   {{ item.price.toLocaleString() }}/=
                 </td>

@@ -6,18 +6,18 @@
           <router-link to="/" class="flex items-center group">
             <div class="flex items-center space-x-2">
               <div
-                class="flex flex-col space-y-1 group-hover:space-y-0.5 transition-all duration-300"
+                class="flex flex-col space-y-1 "
               >
                 <div class="w-5 h-0.5 bg-black"></div>
                 <div class="w-5 h-0.5 bg-black"></div>
                 <div class="w-5 h-0.5 bg-black"></div>
               </div>
               <span
-                class="text-2xl font-bold tracking-wider group-hover:tracking-widest transition-all duration-300"
+                class="text-2xl font-bold tracking-wider  "
                 >KLD</span
               >
               <div
-                class="flex flex-col space-y-1 group-hover:space-y-0.5 transition-all duration-300"
+                class="flex flex-col space-y-1   duration-300"
               >
                 <div class="w-5 h-0.5 bg-black"></div>
                 <div class="w-5 h-0.5 bg-black"></div>

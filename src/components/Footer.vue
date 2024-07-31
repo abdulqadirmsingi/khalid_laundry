@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-black text-white">
+  <footer class="bg-gray-900 text-gray-200">
     <div class="container mx-auto px-4 py-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div>
@@ -66,7 +66,7 @@
       </div>
       <div class="mt-8 pt-8 border-t border-gray-700 text-center">
         <p>&copy; {{ new Date().getFullYear() }} Khalid Cleaning Company Ltd. All rights reserved.</p>
-        <p>Designed and created by <a style="color: blue;" href="https://x.com/qadirmsingi?s=11" target="_blank">abdulqadirmsingi</a>.</p>
+        <p>Website By <a style="color: wheat; font-size: 14" href="https://x.com/qadirmsingi?s=11" target="_blank"> Abdulqadir Msingi</a>.</p>
       </div>
     </div>
   </footer>
