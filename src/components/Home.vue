@@ -53,7 +53,7 @@
           <div class="flex justify-center mb-4">
             <button
               @click="addItem"
-              class="bg-black text-white px-4 py-2 rounded-md hover:bg-black transition duration-300"
+              class="bg-gray-900 text-white px-4 py-2 rounded-full hover:bg-black transition duration-300"
               :disabled="!canAddItem"
             >
               Add Item
@@ -103,7 +103,7 @@
             class="text-center bg-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-300"
           >
             <div
-              class="bg-black text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+              class="bg-gray-900 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
             >
               <i :class="reason.icon" class="text-2xl"></i>
             </div>

@@ -22,7 +22,7 @@
             </li>
           </ul>
           <button @click="showServiceDetails(service)" 
-                  class="w-full bg-black text-white py-2 rounded-lg hover:bg-black transition duration-300">
+                  class="w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-black transition duration-300">
             Learn More
           </button>
         </div>
@@ -43,7 +43,7 @@
             </li>
           </ul>
           <button @click="showCategoryDetails(category)" 
-                  class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300">
+                  class="w-full bg-gray-900 text-white py-2 rounded-lg hover:bg-gray-800 transition duration-300">
             View All Items
           </button>
         </div>

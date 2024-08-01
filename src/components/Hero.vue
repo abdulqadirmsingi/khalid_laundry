@@ -1,11 +1,11 @@
 <template>
   <section class="hero relative bg-white text-black overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img 
+      <!-- <img 
         src="@/assets/kld3.webp" 
         alt="Clean, folded laundry" 
         class="object-cover w-full h-full"
-      >
+      > -->
       <div class="absolute inset-0 bg-white bg-opacity-75"></div>
     </div>
     <div class="container mx-auto px-4 py-16 md:py-24 relative z-10 flex items-center justify-center h-full">
@@ -21,7 +21,7 @@
         </h1>
         <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Let us take care of your clothes while you focus on what matters most.</p>
         <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <router-link to="/booking" class="bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition duration-300 text-lg font-semibold">
+          <router-link to="/booking" class="bg-gray-900 text-white px-8 py-3 rounded-full hover:bg-gray-800 transition duration-300 text-lg font-semibold">
             Book Now
           </router-link>
           <router-link to="/services" class="border-2 border-black text-black px-8 py-3 rounded-full hover:bg-gray-100 transition duration-300 text-lg font-semibold">
@@ -41,7 +41,7 @@ export default {
 
 <style scoped>
 .hero {
-  height: 100vh; 
+  height: 70vh; 
   display: flex;
   align-items: center;
   justify-content: center;
